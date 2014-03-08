@@ -1,6 +1,11 @@
 // import the CSS framework
 @import "bootstrap";
 
+// body
+body {
+  background-color: #eee;
+}
+
 // make all images responsive by default
 img {
   @extend .img-responsive;
@@ -8,7 +13,7 @@ img {
   }
 // override for the 'Home' navigation link
 .navbar-brand {
-  font-size: inherit;
+  font-size: 24px;
   }
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
@@ -30,11 +35,14 @@ img {
   @extend .btn-primary;
   @extend .btn-lg;
   }
+
+
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
+  min-height: 500px;
+  background-color: #fff;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
@@ -43,3 +51,15 @@ section {
   @extend .row;
   margin-top: 20px;
   }
+
+
+// footer
+footer {
+  padding-top: 20px;
+  a {
+    color: #000;
+    &:hover, &:focus, &:active {
+      color: #000;
+    }
+  }
+}

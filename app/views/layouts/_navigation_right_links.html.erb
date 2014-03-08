@@ -1,0 +1,24 @@
+<% if session[:user_id] %>
+	<li>
+		<%= link_to root_path, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "#{current_user.name}" do %>
+			<i class="fa fa-user"></i>
+		<% end %>
+	</li>
+	<li>
+		<%= link_to root_path, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "Exit" do %>
+			<i class="fa fa-power-off"></i>
+		<% end %>
+	</li>
+<% else %>
+	<li>
+		<%= link_to root_path, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "Login" do %>
+			Login <i class="fa fa-sign-in"></i>
+		<% end %>
+	</li>
+<% end %>
+
+<script type="text/javascript">
+	$(function() {
+		$('.show-tootip').tooltip();
+	});
+</script>

@@ -1,6 +1,6 @@
 <% if session[:user_id] %>
 	<li>
-		<%= link_to root_path, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "#{current_user.name}" do %>
+		<%= link_to current_user, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "#{current_user.name}" do %>
 			<i class="fa fa-user"></i>
 		<% end %>
 	</li>

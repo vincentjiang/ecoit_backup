@@ -1,4 +1,6 @@
 Ecoit::Application.routes.draw do
+  resources :users, except: :show
+
   get "index", to: 'pages#index'
   get "help", to: 'pages#help'
 

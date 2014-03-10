@@ -1,17 +1,17 @@
 <% if session[:user_id] %>
 	<li>
-		<%= link_to current_user, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "#{current_user.name}" do %>
+		<%= link_to edit_user_path(current_user), class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "#{current_user.name}" do %>
 			<i class="fa fa-user"></i>
 		<% end %>
 	</li>
 	<li>
-		<%= link_to root_path, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "Exit" do %>
+		<%= link_to logout_path, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "Exit", data: { confirm: "Are you sure to logout ?" } do %>
 			<i class="fa fa-power-off"></i>
 		<% end %>
 	</li>
 <% else %>
 	<li>
-		<%= link_to root_path, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "Login" do %>
+		<%= link_to login_path, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "Login" do %>
 			Login <i class="fa fa-sign-in"></i>
 		<% end %>
 	</li>

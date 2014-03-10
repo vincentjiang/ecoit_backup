@@ -1,4 +1,9 @@
 Ecoit::Application.routes.draw do
+  # resources :sessions, only: [:new, :create, :destroy]
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
+
   resources :users, except: :show
 
   get "index", to: 'pages#index'

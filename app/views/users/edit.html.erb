@@ -26,7 +26,7 @@
 
 		  <div class="form-group">
 		    <div class="col-sm-offset-4 col-sm-8">
-		      <%= f.submit class: "btn btn-primary" %>
+		      <%= f.submit "Submit", class: "btn btn-primary", :disable_with => 'Submiting...' %>
 		      <%= link_to 'Back', users_path, class: "btn btn-link" %>
 		    </div>
 		  </div>
@@ -34,7 +34,7 @@
 
 		<div class="col-sm-6">
 			<br>
-			<a href="" class="btn btn-success btn-lg col-sm-offset-2">Change password <i class="fa fa-arrow-circle-right"></i></a>
+			<a href="<%= password_path %>" class="btn btn-success btn-lg col-sm-offset-2">Change password <i class="fa fa-arrow-circle-right"></i></a>
 			<br>
 		</div>
 	<% end %>

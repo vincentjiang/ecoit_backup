@@ -1,0 +1,38 @@
+<% provide :title, 'Change password' %>
+
+<h1>Change password</h1>
+
+<%= form_for :user, url: update_password_path, html: { class: "form-horizontal" } do |f| %>
+
+	<div class="form-group">
+		<%= f.label :password, "Current password", class: "col-sm-2 control-label" %>
+		<div class="col-sm-4">
+			<%= f.password_field :password, class: "form-control", placeholder: "Current password", required: true %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :password_new, "New password", class: "col-sm-2 control-label" %>
+		<div class="col-sm-4">
+			<%= f.password_field :password_new, class: "form-control", placeholder: "New password", required: true %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :password_new_confirmation, "password confirm", class: "col-sm-2 control-label" %>
+		<div class="col-sm-4">
+			<%= f.password_field :password_new_confirmation, class: "form-control", placeholder: "New password again", required: true %>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-4">
+			<%= f.submit "Submit", :disable_with => 'Submiting...', class: "btn btn-primary" %>
+			<%= link_to 'Back', users_path, class: "btn btn-link" %>
+
+		</div>
+	</div>
+<% end %>
+  

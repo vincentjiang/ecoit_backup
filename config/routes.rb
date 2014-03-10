@@ -1,8 +1,12 @@
 Ecoit::Application.routes.draw do
-  # resources :sessions, only: [:new, :create, :destroy]
+  
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
+
+  get 'password', to: 'passwords#edit'
+  post 'update_password', to: 'passwords#update'
+  get 'reset_password', to: 'passwords#reset'
 
   resources :users, except: :show
 

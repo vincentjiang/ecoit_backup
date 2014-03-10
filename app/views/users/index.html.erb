@@ -18,12 +18,21 @@
           <td><%= user.name %></td>
           <td><%= user.email %></td>
           <td>
-            <%= link_to edit_user_path(user), class: "btn btn-warning btn-xs" do %>
+
+            <%= link_to edit_user_path(user), class: "btn btn-warning btn-xs show-tootip", "data-toggle" => "tooltip", "data-placement" => "top", title: "Edit user" do %>
               <i class="fa fa-pencil"></i>
             <% end %>
-            <%= link_to user, method: :delete, data: { confirm: "Are you sure to delete user #{user.name} ?" }, class: "btn btn-danger btn-xs" do %>
-              <i class="fa fa-trash-o"></i>
+
+            <%= link_to reset_password_path(user), data: { confirm: "Are you sure to reset password to 999999 ?" }, class: "btn btn-info btn-xs show-tootip", "data-toggle" => "tooltip", "data-placement" => "top", title: "Reset password" do %>
+              <i class="fa fa-key"></i>
             <% end %>
+
+            <% unless user == current_user %>
+              <%= link_to user, method: :delete, data: { confirm: "Are you sure to delete user #{user.name} ?" }, class: "btn btn-danger btn-xs show-tootip", "data-toggle" => "tooltip", "data-placement" => "top", title: "Delete user" do %>
+                <i class="fa fa-trash-o"></i>
+              <% end %>
+            <% end %>
+
           </td>
         </tr>
       <% end %>

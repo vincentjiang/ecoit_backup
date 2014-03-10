@@ -33,9 +33,11 @@
 		</div>
 
 		<div class="col-sm-6">
-			<br>
-			<a href="<%= password_path %>" class="btn btn-success btn-lg col-sm-offset-2">Change password <i class="fa fa-arrow-circle-right"></i></a>
-			<br>
+			<% if @user == current_user %>
+				<br>
+				<a href="<%= password_path %>" class="btn btn-success btn-lg col-sm-offset-2">Change password <i class="fa fa-arrow-circle-right"></i></a>
+				<br>
+			<% end %>
 		</div>
 	<% end %>
 	

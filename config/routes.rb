@@ -5,8 +5,8 @@ Ecoit::Application.routes.draw do
   get 'logout', to: 'sessions#destroy'
 
   get 'password', to: 'passwords#edit'
-  post 'update_password', to: 'passwords#update'
-  get 'reset_password', to: 'passwords#reset'
+  post 'user/:id/update_password', to: 'passwords#update', as: 'update_password'
+  get 'user/:id/reset_password/', to: 'passwords#reset', as: "reset_password"
 
   resources :users, except: :show
 

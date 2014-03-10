@@ -33,5 +33,12 @@ class PasswordsController < ApplicationController
   end
 
   def reset
+    user = User.find_by_id(params[:id])
+    user.password = "999999"
+    if user.save
+      redirect_to users_path, notice: "#{user.name}'s password was successfully updated!"
+    else
+      redirect_to users_path, notice: "update password failed, please try again!"
+    end
   end
 end

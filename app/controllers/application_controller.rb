@@ -4,4 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include SessionsHelper
+
+  before_action :have_login
+
+  def have_login
+  	redirect_to login_path, alert: "You must login first" unless session[:user_id]
+  end
 end

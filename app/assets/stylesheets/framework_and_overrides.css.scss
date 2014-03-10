@@ -46,6 +46,28 @@ main {
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
+  #index_page {
+    margin-top: 80px;
+    h1 {
+      font-size: 100px;
+    }
+    p {
+      font-size: 30px;
+      padding: 20px 0;
+      color: #aaa;
+    }
+    .btn-index {
+      color: #333;
+      border: 3px solid #333;
+      margin: 20px 0;
+      padding: 15px 18px;
+      &:hover, &:active {
+        color: white;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        background-color: #333;
+      }
+    }
+  }
   #messages {
     margin-top: 10px;
   }

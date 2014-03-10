@@ -1,2 +1,9 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<div id="index_page" class="text-center">
+	<h1>ECO IT System</h1>
+	<p>—— An IT System for improving work efficiency</p>
+	<% unless session[:user_id]  %>
+		<%= link_to login_path, class: "btn btn-index btn-lg" do %>
+			Login System <i class="fa fa-sign-in"></i>
+		<% end %>
+	<% end %>
+</div>

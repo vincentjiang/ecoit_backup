@@ -13,4 +13,5 @@ class ApplicationController < ActionController::Base
   def first_user
   	User.create(name: "admin", email: "admin@admin.com", admin: true, password: "999999") if User.count.zero?
   end
+  
 end

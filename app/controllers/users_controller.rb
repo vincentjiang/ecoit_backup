@@ -1,15 +1,12 @@
 class UsersController < ApplicationController
+  before_action :is_admin, only: [:index, :new, :create, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :only_update_yourself, only: [:edit, :update]
 
   # GET /users
   # GET /users.json
   def index
     @users = User.all
-  end
-
-  # GET /users/1
-  # GET /users/1.json
-  def show
   end
 
   # GET /users/new
@@ -41,13 +38,33 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(update_params)
-        format.html { redirect_to users_path, notice: "User #{@user.name} was successfully updated." }
-        format.json { head :no_content }
+
+      if current_user.admin && @user != current_user
+        update_params = params.require(:user).permit(:email, :admin)
+        if @user.update(update_params)
+          format.html { redirect_to users_path, notice: "User #{@user.name} was successfully updated." }
+        else
+          format.html { render action: 'edit' }
+        end
+
+      elsif current_user.admin && @user == current_user
+        update_params = params.require(:user).permit(:email)
+        if @user.update(update_params)
+          format.html { redirect_to edit_user_path(current_user), notice: "User #{@user.name} was successfully updated." }
+        else
+          format.html { render action: 'edit' }
+        end
+
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        update_params = params.require(:user).permit(:email)
+        if @user.update(update_params)
+          format.html { redirect_to edit_user_path(current_user), notice: "User #{@user.name} was successfully updated." }
+        else
+          format.html { render action: 'edit' }
+        end
+
       end
+
     end
   end
 
@@ -56,7 +73,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { redirect_to users_url, notice: "User #{@user.name} was successfully removed." }
       format.json { head :no_content }
     end
   end
@@ -72,7 +89,11 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
-    def update_params
-      params.require(:user).permit(:email)
+    def is_admin
+      redirect_to index_path, alert: "You are not Admin!" unless current_user.admin
+    end
+
+    def only_update_yourself
+      redirect_to edit_user_path(current_user), alert: "You can only modify yourself!" if !current_user.admin && @user != current_user
     end
 end

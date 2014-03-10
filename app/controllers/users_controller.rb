@@ -96,4 +96,5 @@ class UsersController < ApplicationController
     def only_update_yourself
       redirect_to edit_user_path(current_user), alert: "You can only modify yourself!" if !current_user.admin && @user != current_user
     end
+    
 end

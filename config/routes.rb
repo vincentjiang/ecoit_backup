@@ -1,17 +1,17 @@
 Ecoit::Application.routes.draw do
   
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  get 'logout', to: 'sessions#destroy'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
 
-  get 'password', to: 'passwords#edit'
-  post 'user/:id/update_password', to: 'passwords#update', as: 'update_password'
-  get 'user/:id/reset_password/', to: 'passwords#reset', as: "reset_password"
+  get 'password' => 'passwords#edit'
+  post 'user/:id/update_password' => 'passwords#update', as: 'update_password'
+  get 'user/:id/reset_password/' => 'passwords#reset', as: "reset_password"
 
   resources :users, except: :show
 
-  get "index", to: 'pages#index'
-  get "help", to: 'pages#help'
+  get "index" => 'pages#index'
+  get "help" => 'pages#help'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

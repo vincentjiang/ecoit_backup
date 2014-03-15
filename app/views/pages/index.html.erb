@@ -8,17 +8,37 @@
 			Login System <i class="fa fa-sign-in"></i>
 		<% end %>
 	<% else %>
-		<div class="row" style="margin: 50px 0;">
-			<div class="col-sm-6">
-				<%= link_to users_path, class: "btn btn-info btn-lg btn-block", style: "margin-top: 10px" do %>
-					<i class="fa fa-gears fa-fw"></i> Assets <i class="fa fa-arrow-circle-right"></i>
-				<% end %>
+		<% if current_user.admin %>
+			<div class="row" style="margin: 40px 0;">
+				<div class="col-sm-4">
+					<%= link_to users_path, class: "btn btn-success btn-lg btn-block", style: "margin-top: 10px" do %>
+						<i class="fa fa-gears fa-fw"></i> Assets <i class="fa fa-arrow-circle-right"></i>
+					<% end %>
+				</div>
+				<div class="col-sm-4">
+					<%= link_to users_path, class: "btn btn-info btn-lg btn-block", style: "margin-top: 10px" do %>
+						<i class="fa fa-file"></i> Docs <i class="fa fa-arrow-circle-right"></i>
+					<% end %>
+				</div>
+				<div class="col-sm-4">
+					<%= link_to users_path, class: "btn btn-warning btn-lg btn-block", style: "margin-top: 10px" do %>
+						<i class="fa fa-users"></i> Users <i class="fa fa-arrow-circle-right"></i>
+					<% end %>
+				</div>
 			</div>
-			<div class="col-sm-6">
-				<%= link_to users_path, class: "btn btn-warning btn-lg btn-block", style: "margin-top: 10px" do %>
-					<i class="fa fa-file"></i> Docs <i class="fa fa-arrow-circle-right"></i>
-				<% end %>
+		<% else %>
+			<div class="row" style="margin: 50px 0;">
+				<div class="col-sm-6">
+					<%= link_to users_path, class: "btn btn-info btn-lg btn-block", style: "margin-top: 10px" do %>
+						<i class="fa fa-gears fa-fw"></i> Assets <i class="fa fa-arrow-circle-right"></i>
+					<% end %>
+				</div>
+				<div class="col-sm-6">
+					<%= link_to users_path, class: "btn btn-warning btn-lg btn-block", style: "margin-top: 10px" do %>
+						<i class="fa fa-file"></i> Docs <i class="fa fa-arrow-circle-right"></i>
+					<% end %>
+				</div>
 			</div>
-		</div>
+		<% end %>
 	<% end %>
 </div>

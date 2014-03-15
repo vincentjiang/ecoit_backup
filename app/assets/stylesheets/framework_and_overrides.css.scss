@@ -1,3 +1,12 @@
+$mainColor: #563d7c;
+
+$navbar-inverse-bg: $mainColor;
+$navbar-inverse-link-color: #fff;
+$btn-primary-bg: $mainColor;
+$input-border-focus: $mainColor;
+
+
+
 // import the CSS framework
 @import "bootstrap";
 
@@ -41,30 +50,37 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  min-height: 500px;
+  min-height: 400px;
   background-color: #fff;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
+  h1 {
+    color: $mainColor;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+  }
   #index_page {
     margin-top: 80px;
     h1 {
       font-size: 100px;
+      border-bottom: none;
+      color: $mainColor;
     }
     p {
       font-size: 30px;
       padding: 20px 0;
-      color: #aaa;
+      color: #cdbfe3;
     }
     .btn-index {
-      color: #333;
-      border: 3px solid #333;
+      color: $mainColor;
+      border: 2px solid $mainColor;
       margin: 20px 0;
       padding: 15px 18px;
       &:hover, &:active {
-        color: white;
+        color: #fff;
         text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-        background-color: #333;
+        background-color: $mainColor;
       }
     }
   }
@@ -75,8 +91,16 @@ main {
     margin-top: 60px;
   }
   form {
-    padding-top: 40px;
-    border-top: 1px solid #ccc;
+    padding-top: 30px;
+  }
+  #sidebar {
+    margin-top: 20px;
+    ul li a {
+      color: #000;
+    }
+  }
+  #main-panel {
+    margin-top: 20px;
   }
 }
 section {
@@ -87,7 +111,7 @@ section {
 
 // footer
 footer {
-  padding-top: 20px;
+  padding: 20px 0;
   a {
     color: #000;
     &:hover, &:focus, &:active {

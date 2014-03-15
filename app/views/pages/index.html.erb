@@ -8,7 +8,7 @@
 			Login System <i class="fa fa-sign-in"></i>
 		<% end %>
 	<% else %>
-		<% if User.find(session[:user_id].admin %>
+		<% if User.find(session[:user_id].admin) %>
 			<div class="row" style="margin: 40px 0;">
 				<div class="col-sm-4">
 					<%= link_to users_path, class: "btn btn-success btn-lg btn-block", style: "margin-top: 10px" do %>

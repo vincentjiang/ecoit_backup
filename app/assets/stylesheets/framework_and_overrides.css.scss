@@ -1,9 +1,9 @@
-$mainColor: #563d7c;
+$purple: #563d7c;
 
-$navbar-inverse-bg: $mainColor;
+$navbar-inverse-bg: $purple;
 $navbar-inverse-link-color: #fff;
-$btn-primary-bg: $mainColor;
-$input-border-focus: $mainColor;
+$btn-primary-bg: $purple;
+$input-border-focus: $purple;
 
 
 
@@ -55,8 +55,10 @@ main {
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
+  .text-purple {
+    color: $purple;
+  }
   h1 {
-    color: $mainColor;
     padding-bottom: 15px;
     border-bottom: 1px solid #ddd;
   }
@@ -65,7 +67,7 @@ main {
     h1 {
       font-size: 100px;
       border-bottom: none;
-      color: $mainColor;
+      color: $purple;
     }
     p {
       font-size: 30px;
@@ -73,14 +75,14 @@ main {
       color: #cdbfe3;
     }
     .btn-index {
-      color: $mainColor;
-      border: 2px solid $mainColor;
+      color: $purple;
+      border: 2px solid $purple;
       margin: 20px 0;
       padding: 15px 18px;
       &:hover, &:active {
         color: #fff;
         text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-        background-color: $mainColor;
+        background-color: $purple;
       }
     }
   }
@@ -94,13 +96,31 @@ main {
     padding-top: 30px;
   }
   #sidebar {
-    margin-top: 20px;
-    ul li a {
-      color: #000;
+    #search {
+      margin-bottom: 10px;
     }
-  }
-  #main-panel {
-    margin-top: 20px;
+    ul{
+      background-color: #f7f5fa;
+      li.kind>a {
+        padding: 15px 12px;
+        color: $purple;
+        border-left: 2px solid #f7f5fa;
+        font-weight: bold;
+        &:hover {
+          background-color: #f7f5fa;
+          border-left: 2px solid $purple;
+        }
+      }
+      li.item>a {
+        padding: 5px 12px 5px 30px;
+        color: $purple;
+        border-left: 1px solid #f7f5fa;
+        &:hover {
+          background-color: #f7f5fa;
+          border-left: 1px solid $purple;
+        }
+      }
+    }
   }
 }
 section {

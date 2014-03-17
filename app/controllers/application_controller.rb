@@ -5,13 +5,16 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
-  before_action :first_user, :have_login
+  before_action :first_user, :have_login, :resources
 
   def have_login
   	redirect_to login_path, alert: "You must login first" unless session[:user_id]
   end
   def first_user
   	User.create(name: "admin", email: "admin@admin.com", admin: true, password: "999999") if User.count.zero?
+  end
+  def resources
+    @users = User.all
   end
   
 end

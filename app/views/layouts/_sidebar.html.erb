@@ -1,15 +1,20 @@
-<div id="sidebar" class="panel panel-primary hidden-xs">
-  <div class="panel-heading"><b>Navigation</b></div>
-  <div class="panel-body">
-    
-		<ul class="nav nav-pills nav-stacked">
-			<li><a href="#"><i class="fa fa-gears fa-fw"></i> Assets</a></li>
-			<li><a href="#"><i class="fa fa-file fa-fw"></i> Docs</a></li>
-			<% if session[:user_id] && current_user.admin %>
-				<li><a href="<%= users_path %>"><i class="fa fa-users fa-fw"></i> Users</a></li>
-			<% end %>
-			<li><a href="<%= help_path %>"><i class="fa fa-question-circle fa-fw"></i> Help</a></li>
-		</ul>
-
-  </div>
+<div id="sidebar">
+	<form id="search" action="">
+		<input type="text" class="form-control" placeholder="Input anything">
+	</form>
+	
+	<ul class="nav nav-unstyled">
+		<li class="kind"><a id="assets-sidebar" href="#"><i class="fa fa-gears fa-fw"></i> Assets <i class="fa fa-chevron-right pull-right"></i></a></li>
+		<li class="kind"><a id="docs-sidebar" href="#"><i class="fa fa-file fa-fw"></i> Docs <i class="fa fa-chevron-right pull-right"></i></a></li>
+		<% if session[:user_id] && current_user.admin %>
+			<li class="kind">
+				<a id="users-sidebar" data-toggle="collapse" data-parent="#sidebar" href="#demo"><i class="fa fa-users fa-fw"></i> Users <i class="fa fa-chevron-right pull-right"></i></a>
+				<ul id="demo" class="nav nav-unstyled collapse">
+					<% @users.each do |user| %>
+						<li class="item"><a href=""><%= user.name %></a></li>
+					<% end %>
+				</ul>
+			</li>
+		<% end %>
+	</ul>
 </div>

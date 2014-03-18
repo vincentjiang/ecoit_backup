@@ -5,7 +5,7 @@
 <div class="row">
 	
 	<%= form_for(@user, html: {class: "form-horizontal"}) do |f| %>
-		<div class="col-sm-6">
+		<div class="col-sm-7">
 		  <%= render 'layouts/error' %>
 
 		  <div class="form-group">
@@ -45,7 +45,7 @@
 		  </div>
 		</div>
 
-		<div class="col-sm-6">
+		<div class="col-sm-5">
 			<% if @user == current_user %>
 				<br>
 				<a href="<%= password_path %>" class="btn btn-success btn-lg col-sm-offset-2">Change password <i class="fa fa-arrow-circle-right"></i></a>

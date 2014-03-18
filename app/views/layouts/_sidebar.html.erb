@@ -1,6 +1,11 @@
 <div id="sidebar">
 	<form id="search" action="">
-		<input type="text" class="form-control" placeholder="Input anything">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="Input anything">
+			<span class="input-group-btn">
+        <button class="btn btn-default" type="button"><i class="fa fa-search fa-fw"></i></button>
+      </span>
+		</div>
 	</form>
 	
 	<ul class="nav nav-unstyled">
@@ -11,7 +16,7 @@
 				<a id="users-sidebar" data-toggle="collapse" data-parent="#sidebar" href="#demo"><i class="fa fa-users fa-fw"></i> Users <i class="fa fa-chevron-right pull-right"></i></a>
 				<ul id="demo" class="nav nav-unstyled collapse">
 					<% @users.each do |user| %>
-						<li class="item"><a href=""><%= user.name %></a></li>
+						<li class="item"><a href="<%= edit_user_path(user) %>"><%= user.name %></a></li>
 					<% end %>
 				</ul>
 			</li>

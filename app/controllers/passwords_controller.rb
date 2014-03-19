@@ -9,25 +9,25 @@ class PasswordsController < ApplicationController
   				if params[:user][:password_new] == params[:user][:password_new_confirmation]
 		  			user.password = params[:user][:password_new]
 		  			if user.save
-		  				redirect_to index_path, notice: "Password was successfully updated!"
+		  				redirect_to index_path, notice: "密码更改成功！"
 		  			else
-		  				flash.now[:alert] = "Password was updated fail, please try again!"
+		  				flash.now[:alert] = "密码更改失败，请重试！"
 		  				render :edit
 		  			end
 		  		else
-		  			flash.now[:alert] = "Two new password is not the same!"
+		  			flash.now[:alert] = "两次新密码不一样！"
 		  			render :edit
 		  		end
   			else
-  				flash.now[:alert] = "The length of new password must more than 6 !"
+  				flash.now[:alert] = "密码长度必须大于6"
   				render :edit
   			end
   		else
-  			flash.now[:alert] = "Please input the new password!"
+  			flash.now[:alert] = "请输入新密码！"
   			render :edit
   		end
   	else
-  		flash.now[:alert] = "Current password is wrong!"
+  		flash.now[:alert] = "当前密码错误！"
   		render :edit
   	end
   end
@@ -36,9 +36,9 @@ class PasswordsController < ApplicationController
     user = User.find_by_id(params[:id])
     user.password = "999999"
     if user.save
-      redirect_to users_path, notice: "#{user.name}'s password was successfully updated!"
+      redirect_to users_path, notice: "#{user.name}'s 的密码修改成功！"
     else
-      redirect_to users_path, notice: "update password failed, please try again!"
+      redirect_to users_path, alert: "密码更改失败，请重试！"
     end
   end
 end

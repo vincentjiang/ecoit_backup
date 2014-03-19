@@ -1,32 +1,31 @@
-<%= provide :title, "Editing user" %>
+<%= provide :title, "修改用户" %>
 
-<h1 class="text-purple">Editing user</h1>
+<h1 class="text-myBlue">修改用户</h1>
 
 <div class="row">
 	
 	<%= form_for(@user, html: {class: "form-horizontal"}) do |f| %>
-		<div class="col-sm-7">
-		  <%= render 'layouts/error' %>
+		<div class="col-sm-6">
 
 		  <div class="form-group">
-		    <%= f.label :name, class: "control-label col-sm-4" %>
+		    <%= f.label :name, "用户名", class: "control-label col-sm-4" %>
 		    <div class="col-sm-8">
 		      <%= f.text_field :name, class: "form-control", placeholder: "Login account", disabled: true %>
 		    </div>
 		  </div>
 
 		  <div class="form-group">
-		    <%= f.label :email, class: "control-label col-sm-4" %>
+		    <%= f.label :email, "邮箱", class: "control-label col-sm-4" %>
 		    <div class="col-sm-8">
-		      <%= f.text_field :email, class: "form-control", placeholder: "username@example.com" %>
+		      <%= f.text_field :email, class: "form-control", placeholder: "username@example.com", required: true %>
 		    </div>
 		  </div>
 			
 			<% if current_user.admin && @user != current_user %>
 			  <div class="form-group">
-			    <%= f.label :admin, "Role", class: "control-label col-sm-4" %>
+			    <%= f.label :admin, "权限", class: "control-label col-sm-4" %>
 			    <div class="col-sm-8">
-		    		<%= f.select :admin, [["Admin", true], ["Common user", false]], {}, class: "form-control", placeholder: "username@example.com" %>
+		    		<%= f.select :admin, [["管理员", true], ["普通用户", false]], {}, class: "form-control", required: true %>
 			    </div>
 			  </div>
 			<% end %>	
@@ -34,11 +33,11 @@
 
 		  <div class="form-group">
 		    <div class="col-sm-offset-4 col-sm-8">
-		      <%= f.submit "Submit", class: "btn btn-primary", data: { :disable_with => 'Submiting...' } %>
+		      <%= f.submit "确认修改", class: "btn btn-primary", data: { :disable_with => '正在提交...' } %>
 		      <% if current_user.admin %>
-		      	<%= link_to 'Back', users_path, class: "btn btn-link" %>
+		      	<%= link_to '返回', users_path, class: "btn btn-link" %>
 		      <% else %>
-		      	<%= link_to 'Back', index_path, class: "btn btn-link" %>
+		      	<%= link_to '返回', index_path, class: "btn btn-link" %>
 		      <% end %>
 		      
 		    </div>
@@ -48,7 +47,7 @@
 		<div class="col-sm-5">
 			<% if @user == current_user %>
 				<br>
-				<a href="<%= password_path %>" class="btn btn-success btn-lg col-sm-offset-2">Change password <i class="fa fa-arrow-circle-right"></i></a>
+				<a href="<%= password_path %>" class="btn btn-success btn-lg col-sm-offset-2">更改密码 <i class="fa fa-arrow-circle-right"></i></a>
 				<br>
 			<% end %>
 		</div>

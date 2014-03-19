@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  layout 'main', only: :index
+
   before_action :is_admin, only: [:index, :new, :create, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :only_update_yourself, only: [:edit, :update]
@@ -6,7 +9,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.all.order(:name)
   end
 
   # GET /users/new
@@ -25,7 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_path, notice: "User #{@user.name} was successfully created." }
+        format.html { redirect_to users_path, notice: "用户 #{@user.name} 创建成功！" }
         format.json { render action: 'index', status: :created, location: @users }
       else
         format.html { render action: 'new' }
@@ -42,7 +45,7 @@ class UsersController < ApplicationController
       if current_user.admin && @user != current_user
         update_params = params.require(:user).permit(:email, :admin)
         if @user.update(update_params)
-          format.html { redirect_to users_path, notice: "User #{@user.name} was successfully updated." }
+          format.html { redirect_to users_path, notice: "用户 #{@user.name} 修改成功！" }
         else
           format.html { render action: 'edit' }
         end
@@ -50,7 +53,7 @@ class UsersController < ApplicationController
       elsif current_user.admin && @user == current_user
         update_params = params.require(:user).permit(:email)
         if @user.update(update_params)
-          format.html { redirect_to edit_user_path(current_user), notice: "User #{@user.name} was successfully updated." }
+          format.html { redirect_to edit_user_path(current_user), notice: "用户 #{@user.name} 修改成功！" }
         else
           format.html { render action: 'edit' }
         end
@@ -58,7 +61,7 @@ class UsersController < ApplicationController
       else
         update_params = params.require(:user).permit(:email)
         if @user.update(update_params)
-          format.html { redirect_to edit_user_path(current_user), notice: "User #{@user.name} was successfully updated." }
+          format.html { redirect_to edit_user_path(current_user), notice: "用户 #{@user.name} 修改成功！" }
         else
           format.html { render action: 'edit' }
         end
@@ -73,7 +76,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "User #{@user.name} was successfully removed." }
+      format.html { redirect_to users_url, notice: "用户 #{@user.name} 删除成功！" }
       format.json { head :no_content }
     end
   end
@@ -90,11 +93,11 @@ class UsersController < ApplicationController
     end
 
     def is_admin
-      redirect_to index_path, alert: "You are not Admin!" unless current_user.admin
+      redirect_to index_path, alert: "您不是管理员！" unless current_user.admin
     end
 
     def only_update_yourself
-      redirect_to edit_user_path(current_user), alert: "You can only modify yourself!" if !current_user.admin && @user != current_user
+      redirect_to edit_user_path(current_user), alert: "您不能修改别人的资料！" if !current_user.admin && @user != current_user
     end
     
 end

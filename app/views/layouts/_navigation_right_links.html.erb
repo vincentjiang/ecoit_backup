@@ -5,14 +5,14 @@
 		<% end %>
 	</li>
 	<li>
-		<%= link_to logout_path, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "Exit", data: { confirm: "Are you sure to logout ?" } do %>
+		<%= link_to logout_path, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "登出", data: { confirm: "退出系统？" } do %>
 			<i class="fa fa-power-off"></i>
 		<% end %>
 	</li>
 <% else %>
 	<li>
-		<%= link_to login_path, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "Login" do %>
-			Login <i class="fa fa-sign-in"></i>
+		<%= link_to login_path, class: "show-tootip", "data-toggle" => "tooltip", "data-placement" => "bottom", title: "登录" do %>
+			登录 <i class="fa fa-sign-in"></i>
 		<% end %>
 	</li>
 <% end %>

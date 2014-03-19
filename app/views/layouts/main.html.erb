@@ -21,17 +21,16 @@
     <main id="main" role="main">
       <div class="container">
 
-        <%= render 'layouts/messages' %>
-
         <div class="row">
-  
-          <div class="col-sm-3">
-            <%= render  'layouts/sidebar' %>
-          </div>
-
+          
           <div class="col-sm-9">
+            <%= render 'layouts/messages' %>
 
             <%= yield %>
+          </div>
+
+          <div class="col-sm-3">
+            <%= yield :sidebar %>
           </div>
 
         </div>
@@ -40,7 +39,7 @@
 
     </main>
 
-    <%= debug(params) if Rails.env.development? %>
+    <%#= debug(params) if Rails.env.development? %>
 
     <footer>
       <div class="container">

@@ -1,5 +1,13 @@
 Ecoit::Application.routes.draw do
   
+  resources :systems
+
+  resources :network_devices
+
+  resources :softwares
+
+  resources :servers
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'

@@ -1,84 +1,119 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title, "#{@server.name}" %>
 
-<p>
-  <strong>Name:</strong>
+<h1 class="text-myBlue">
   <%= @server.name %>
-</p>
+  <div class="pull-right">
+    <a href="<%= edit_server_path(@server) %>" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> 修改</a>
+    <a href="<%= servers_path %>" class="btn btn-xs btn-link"><i class="fa fa-arrow-circle-o-left"></i> 返回</a>
+  </div>
+</h1>
 
-<p>
-  <strong>Ip:</strong>
-  <%= @server.ip %>
-</p>
+<div class="detail">
+  <div class="row">
+    <div class="col-sm-3">
+      <dl>
+        <dt>IP地址：</dt>
+        <dd><%= @server.ip %></dd>
+      </dl>
+    </div>
+    <div class="col-sm-3">
+      <dl>
+        <dt>iLO地址：</dt>
+        <dd><%= @server.ilo %></dd>
+      </dl>
+    </div>
+  </div>
 
-<p>
-  <strong>Ilo:</strong>
-  <%= @server.ilo %>
-</p>
+  <div class="row">
+    <div class="col-sm-3">
+      <dl>
+        <dt>SN号：</dt>
+        <dd><%= @server.sn %></dd>
+      </dl>
+    </div>
+    <div class="col-sm-3">
+      <dl>
+        <dt>服务到期：</dt>
+        <dd><%= @server.service_expired_day %></dd>
+      </dl>
+    </div>
+  </div>
 
-<p>
-  <strong>Brand:</strong>
-  <%= @server.brand %>
-</p>
+  <div class="row">
+    <div class="col-sm-3">
+      <dl>
+        <dt>品牌：</dt>
+        <dd><%= @server.brand %></dd>
+      </dl>
+    </div>
+    <div class="col-sm-3">
+      <dl>
+        <dt>型号：</dt>
+        <dd><%= @server.model %></dd>
+      </dl>
+    </div>
+    <div class="col-sm-3">
+      <dl>
+        <dt>操作系统：</dt>
+        <dd><%= @server.os %></dd>
+      </dl>
+    </div>
+  </div>
 
-<p>
-  <strong>Model:</strong>
-  <%= @server.model %>
-</p>
+  <div class="row">
+    <div class="col-sm-3">
+      <dl>
+        <dt>CPU：</dt>
+        <dd><%= @server.cpu %></dd>
+      </dl>
+    </div>
+    <div class="col-sm-3">
+      <dl>
+        <dt>内存：</dt>
+        <dd><%= @server.ram %></dd>
+      </dl>
+    </div>
+    <div class="col-sm-3">
+      <dl>
+        <dt>本机硬盘：</dt>
+        <dd><%= @server.local_disk %></dd>
+      </dl>
+    </div>
+  </div>
 
-<p>
-  <strong>Sn:</strong>
-  <%= @server.sn %>
-</p>
+  <div class="row">
+    <div class="col-sm-3">
+      <dl>
+        <dt>安装地点：</dt>
+        <dd><%= @server.place %></dd>
+      </dl>
+    </div>
+    <div class="col-sm-3">
+      <dl>
+        <dt>安装具体位置：</dt>
+        <dd><%= @server.position %></dd>
+      </dl>
+    </div>
+  </div>
+  
+  <div class="row">
+    <% if @server.function.present? %>
+      <div class="col-sm-6">
+        <dl>
+          <dt>服务器用途：</dt>
+          <dd><%= @server.function %></dd>
+        </dl>
+      </div>
+    <% end %>
+    <% if @server.remark.present? %>
+      <div class="col-sm-6">
+        <dl>
+          <dt>备注：</dt>
+          <dd><%= @server.remark %></dd>
+        </dl>
+      </div>
+    <% end %>
+  </div>
 
-<p>
-  <strong>Cup:</strong>
-  <%= @server.cup %>
-</p>
 
-<p>
-  <strong>Ram:</strong>
-  <%= @server.ram %>
-</p>
-
-<p>
-  <strong>Local disk:</strong>
-  <%= @server.local_disk %>
-</p>
-
-<p>
-  <strong>Os:</strong>
-  <%= @server.os %>
-</p>
-
-<p>
-  <strong>Place:</strong>
-  <%= @server.place %>
-</p>
-
-<p>
-  <strong>Position:</strong>
-  <%= @server.position %>
-</p>
-
-<p>
-  <strong>Service expired day:</strong>
-  <%= @server.service_expired_day %>
-</p>
-
-<p>
-  <strong>Function:</strong>
-  <%= @server.function %>
-</p>
-
-<p>
-  <strong>Remark:</strong>
-  <%= @server.remark %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @server.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_server_path(@server) %> |
-<%= link_to 'Back', servers_path %>
+</div>

@@ -122,6 +122,10 @@ main {
     padding-left: 15px;
     border-left: 1px solid #ccc;
   }
+
+  .detail {
+    margin: 20px 0 20px 20px; 
+  }
 }
 section {
   @extend .row;

@@ -25,7 +25,7 @@
           <td><%= server.sn %></td>
           <td><%= server.service_expired_day %></td>
           <td>
-            <%= link_to server, class: "btn btn-success btn-xs show-tootip", "data-toggle" => "tooltip", "data-placement" => "top", title: "查看" do %>
+            <%= link_to server, class: "btn btn-success btn-xs show-tootip", "data-toggle" => "tooltip", "data-placement" => "top", title: "详情" do %>
               <i class="fa fa-eye"></i>
             <% end %>
             <%= link_to edit_server_path(server), class: "btn btn-warning btn-xs show-tootip", "data-toggle" => "tooltip", "data-placement" => "top", title: "修改" do %>

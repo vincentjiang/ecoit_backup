@@ -7,7 +7,7 @@
   <div class="form-group">
     <%= f.label :name, "用户名",class: "control-label col-sm-2" %>
     <div class="col-sm-4">
-      <%= f.text_field :name, class: "form-control", placeholder: "英文字母和数字的组合" %>
+      <%= f.text_field :name, class: "form-control", placeholder: "新建后便不能修改" %>
     </div>
     <div class="col-sm-4">
       <% if @user.errors[:name].any? %>

@@ -1,6 +1,104 @@
-<h1>Editing server</h1>
+<% content_for :title, "修改服务器" %>
 
-<%= render 'form' %>
+<h1 class="text-myBlue">修改服务器</h1>
 
-<%= link_to 'Show', @server %> |
-<%= link_to 'Back', servers_path %>
+<%= form_for(@server, html: { class: "form-horizontal" }) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name, "服务器名：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :os, "操作系统：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :os, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ip, "IP地址：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :ip, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ilo, "iLO地址：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :ilo, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :sn, "SN号：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :sn, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :service_expired_day, "服务到期日期：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.date_select :service_expired_day, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :brand, "品牌：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :brand, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :model, "型号：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :model, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :cpu, "CPU：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :cpu, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ram, "内存：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :ram, class: "form-control" %>
+    </div>  
+  </div>
+  <div class="form-group">
+    <%= f.label :local_disk, "本机硬盘：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :local_disk, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :place, "安装地点：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :place, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :position, "安装具体位置：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :position, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :function, "服务器用途：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_area :function, class: "form-control", rows: "5" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :remark, "备注：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_area :remark, class: "form-control", rows: "5" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+      <%= f.submit "提交", :disable_with => '正在提交...', class: "btn btn-primary" %><%= link_to 'Back', servers_path, class: "btn btn-link" %>
+    </div>
+  </div>
+
+<% end %>

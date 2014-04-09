@@ -9,111 +9,55 @@
 </h1>
 
 <div class="detail">
-  <div class="row">
-    <div class="col-sm-3">
-      <dl>
-        <dt>IP地址：</dt>
-        <dd><%= @server.ip %></dd>
-      </dl>
-    </div>
-    <div class="col-sm-3">
-      <dl>
-        <dt>iLO地址：</dt>
-        <dd><%= @server.ilo %></dd>
-      </dl>
-    </div>
-  </div>
 
   <div class="row">
-    <div class="col-sm-3">
-      <dl>
-        <dt>SN号：</dt>
-        <dd><%= @server.sn %></dd>
-      </dl>
-    </div>
-    <div class="col-sm-3">
-      <dl>
-        <dt>服务到期：</dt>
-        <dd><%= @server.service_expired_day %></dd>
-      </dl>
-    </div>
+    <label class="col-sm-2">操作系统：</label><p class="col-sm-10"><%= @server.os %></p>
   </div>
-
   <div class="row">
-    <div class="col-sm-3">
-      <dl>
-        <dt>品牌：</dt>
-        <dd><%= @server.brand %></dd>
-      </dl>
-    </div>
-    <div class="col-sm-3">
-      <dl>
-        <dt>型号：</dt>
-        <dd><%= @server.model %></dd>
-      </dl>
-    </div>
-    <div class="col-sm-3">
-      <dl>
-        <dt>操作系统：</dt>
-        <dd><%= @server.os %></dd>
-      </dl>
-    </div>
+    <label class="col-sm-2">IP地址：</label><p class="col-sm-10"><%= @server.ip %></p>
   </div>
-
   <div class="row">
-    <div class="col-sm-3">
-      <dl>
-        <dt>CPU：</dt>
-        <dd><%= @server.cpu %></dd>
-      </dl>
-    </div>
-    <div class="col-sm-3">
-      <dl>
-        <dt>内存：</dt>
-        <dd><%= @server.ram %></dd>
-      </dl>
-    </div>
-    <div class="col-sm-3">
-      <dl>
-        <dt>本机硬盘：</dt>
-        <dd><%= @server.local_disk %></dd>
-      </dl>
-    </div>
+    <label class="col-sm-2">iLO地址：</label><p class="col-sm-10"><%= @server.ilo %></p>
   </div>
-
   <div class="row">
-    <div class="col-sm-3">
-      <dl>
-        <dt>安装地点：</dt>
-        <dd><%= @server.place %></dd>
-      </dl>
-    </div>
-    <div class="col-sm-3">
-      <dl>
-        <dt>安装具体位置：</dt>
-        <dd><%= @server.position %></dd>
-      </dl>
-    </div>
+    <label class="col-sm-2">SN号：</label><p class="col-sm-10"><%= @server.sn %></p>
   </div>
-  
   <div class="row">
-    <% if @server.function.present? %>
-      <div class="col-sm-6">
-        <dl>
-          <dt>服务器用途：</dt>
-          <dd><%= @server.function %></dd>
-        </dl>
-      </div>
-    <% end %>
-    <% if @server.remark.present? %>
-      <div class="col-sm-6">
-        <dl>
-          <dt>备注：</dt>
-          <dd><%= @server.remark %></dd>
-        </dl>
-      </div>
-    <% end %>
+    <label class="col-sm-2">服务到期日期：</label><p class="col-sm-10"><%= @server.service_expired_day %></p>
   </div>
-
+  <div class="row">
+    <label class="col-sm-2">品牌：</label><p class="col-sm-10"><%= @server.brand %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">型号：</label><p class="col-sm-10"><%= @server.model %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">操作系统：</label><p class="col-sm-10"><%= @server.os %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">CPU：</label><p class="col-sm-10"><%= @server.cpu %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">内存：</label><p class="col-sm-10"><%= @server.ram %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">本机硬盘：</label><p class="col-sm-10"><%= @server.local_disk %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">安装地点：</label><p class="col-sm-10"><%= @server.place %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">安装具体位置：</label><p class="col-sm-10"><%= @server.position %></p>
+  </div>
+  <% if @server.function.present? %>
+    <div class="row">
+      <label class="col-sm-2">服务器用途：</label><p class="col-sm-10"><%= @server.function %></p>
+    </div>
+  <% end %>
+  <% if @server.remark.present? %>
+    <div class="row">
+      <label class="col-sm-2">备注：</label><p class="col-sm-10"><%= @server.remark %></p>
+    </div>
+  <% end %>
 
 </div>

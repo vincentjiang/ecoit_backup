@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :have_login, only: [:new, :create]
 
   def new
+    redirect_to index_path, alert: "您已经登录" if session[:user_id]
   end
 
   def create

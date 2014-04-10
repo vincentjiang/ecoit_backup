@@ -1,54 +1,48 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title, "查看网络设备" %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @network_device.name %>
-</p>
+<h1 class="text-myBlue">
+  查看网络设备
+  <div class="pull-right">
+    <a href="<%= edit_network_device_path(@network_device) %>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> 修改</a>
+    <a href="<%= network_devices_path %>" class="btn btn-sm btn-link"><i class="fa fa-arrow-circle-o-left"></i> 返回</a>
+  </div>
+</h1>
 
-<p>
-  <strong>Ip:</strong>
-  <%= @network_device.ip %>
-</p>
+<div class="detail">
 
-<p>
-  <strong>Kind:</strong>
-  <%= @network_device.kind %>
-</p>
+  <div class="row">
+    <label class="col-sm-2">设备名：</label><p class="col-sm-10"><%= @network_device.name %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">IP地址：</label><p class="col-sm-10"><%= @network_device.ip %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">设备类型：</label><p class="col-sm-10"><%= @network_device.kind %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">SN号：</label><p class="col-sm-10"><%= @network_device.sn %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">服务到期日期：</label><p class="col-sm-10"><%= @network_device.service_expired_day %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">安装地点：</label><p class="col-sm-10"><%= @network_device.place %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">安装具体位置：</label><p class="col-sm-10"><%= @network_device.position %></p>
+  </div>
+  <% if @network_device.function.present? %>
+    <div class="row">
+      <label class="col-sm-2">服务器用途：</label><p class="col-sm-10"><%= @network_device.function %></p>
+    </div>
+  <% end %>
+  <% if @network_device.remark.present? %>
+    <div class="row">
+      <label class="col-sm-2">备注：</label><p class="col-sm-10"><%= @network_device.remark %></p>
+    </div>
+  <% end %>
+  <div class="row">
+    <label class="col-sm-2">创建者：</label><p class="col-sm-10"><%= @network_device.user.name %></p>
+  </div>
 
-<p>
-  <strong>Place:</strong>
-  <%= @network_device.place %>
-</p>
-
-<p>
-  <strong>Position:</strong>
-  <%= @network_device.position %>
-</p>
-
-<p>
-  <strong>Sn:</strong>
-  <%= @network_device.sn %>
-</p>
-
-<p>
-  <strong>Service expired day:</strong>
-  <%= @network_device.service_expired_day %>
-</p>
-
-<p>
-  <strong>Function:</strong>
-  <%= @network_device.function %>
-</p>
-
-<p>
-  <strong>Remark:</strong>
-  <%= @network_device.remark %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @network_device.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_network_device_path(@network_device) %> |
-<%= link_to 'Back', network_devices_path %>
+</div>

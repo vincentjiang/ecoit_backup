@@ -1,4 +1,6 @@
 class NetworkDevicesController < ApplicationController
+  layout 'main', only: :index
+  
   before_action :set_network_device, only: [:show, :edit, :update, :destroy]
 
   # GET /network_devices

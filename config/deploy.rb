@@ -10,7 +10,7 @@ require 'mina/git'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain, '10.148.7.25'
+set :domain, '192.168.1.6'
 set :deploy_to, '/var/www/ecoit.com'
 set :repository, 'https://github.com/vincentjiang/ecoit'
 set :branch, 'master'

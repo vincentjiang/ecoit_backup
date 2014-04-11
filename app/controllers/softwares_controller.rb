@@ -1,4 +1,6 @@
 class SoftwaresController < ApplicationController
+  layout 'main', only: :index
+  
   before_action :set_software, only: [:show, :edit, :update, :destroy]
 
   # GET /softwares

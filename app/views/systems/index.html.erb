@@ -1,35 +1,48 @@
-<h1>Listing systems</h1>
+<% content_for :title, "系统列表" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Link</th>
-      <th>Username</th>
-      <th>Password</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @systems.each do |system| %>
+<h1 class="text-myBlue">系统列表</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-condensed">
+    <thead>
       <tr>
-        <td><%= system.name %></td>
-        <td><%= system.link %></td>
-        <td><%= system.username %></td>
-        <td><%= system.password %></td>
-        <td><%= system.user_id %></td>
-        <td><%= link_to 'Show', system %></td>
-        <td><%= link_to 'Edit', edit_system_path(system) %></td>
-        <td><%= link_to 'Destroy', system, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>系统名称</th>
+        <th>账户名</th>
+        <th>密码</th>
+        <th>动作</th>
       </tr>
+    </thead>
+
+    <tbody>
+      <% @systems.each do |system| %>
+        <tr>
+          <td><%= system.name %></td>
+          <td><%= system.username %></td>
+          <td><%= system.password %></td>
+          <td>
+            <%= link_to system, class: "btn btn-success btn-xs show-tootip", "data-toggle" => "tooltip", "data-placement" => "top", title: "详情" do %>
+              <i class="fa fa-eye"></i>
+            <% end %>
+            <%= link_to edit_system_path(system), class: "btn btn-warning btn-xs show-tootip", "data-toggle" => "tooltip", "data-placement" => "top", title: "修改" do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+            <%= link_to system, method: :delete, data: { confirm: "删除服务器 #{system.name} 吗？" }, class: "btn btn-danger btn-xs show-tootip", "data-toggle" => "tooltip", "data-placement" => "top", title: "删除" do %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= render 'layouts/pagination' %>
+
+<% content_for :sidebar do %>
+  <div class="text-center" style="margin-top: 70px;">
+    <%= link_to new_system_path, class: "btn btn-success" do%>
+    新建系统信息 <i class="fa fa-arrow-circle-right"></i>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New System', new_system_path %>
+  </div>
+<% end %>

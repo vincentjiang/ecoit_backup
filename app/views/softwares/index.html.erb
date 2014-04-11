@@ -1,39 +1,50 @@
-<h1>Listing softwares</h1>
+<% content_for :title, "软件列表" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Kind</th>
-      <th>Sn</th>
-      <th>Service expired day</th>
-      <th>Function</th>
-      <th>Remark</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @softwares.each do |software| %>
+<h1 class="text-myBlue">软件列表</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-condensed">
+    <thead>
       <tr>
-        <td><%= software.name %></td>
-        <td><%= software.kind %></td>
-        <td><%= software.sn %></td>
-        <td><%= software.service_expired_day %></td>
-        <td><%= software.function %></td>
-        <td><%= software.remark %></td>
-        <td><%= software.user_id %></td>
-        <td><%= link_to 'Show', software %></td>
-        <td><%= link_to 'Edit', edit_software_path(software) %></td>
-        <td><%= link_to 'Destroy', software, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>软件名称</th>
+        <th>软件类型</th>
+        <th>SN号</th>
+        <th>服务到期日期</th>
+        <th>动作</th>
       </tr>
+    </thead>
+
+    <tbody>
+      <% @softwares.each do |software| %>
+        <tr>
+          <td><%= software.name %></td>
+          <td><%= software.kind %></td>
+          <td><%= software.sn %></td>
+          <td><%= software.service_expired_day %></td>
+          <td>
+            <%= link_to software, class: "btn btn-success btn-xs show-tootip", "data-toggle" => "tooltip", "data-placement" => "top", title: "详情" do %>
+              <i class="fa fa-eye"></i>
+            <% end %>
+            <%= link_to edit_software_path(software), class: "btn btn-warning btn-xs show-tootip", "data-toggle" => "tooltip", "data-placement" => "top", title: "修改" do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+            <%= link_to software, method: :delete, data: { confirm: "删除服务器 #{software.name} 吗？" }, class: "btn btn-danger btn-xs show-tootip", "data-toggle" => "tooltip", "data-placement" => "top", title: "删除" do %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= render 'layouts/pagination' %>
+
+<% content_for :sidebar do %>
+  <div class="text-center" style="margin-top: 70px;">
+    <%= link_to new_software_path, class: "btn btn-success" do%>
+    新建软件信息 <i class="fa fa-arrow-circle-right"></i>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Software', new_software_path %>
+  </div>
+<% end %>

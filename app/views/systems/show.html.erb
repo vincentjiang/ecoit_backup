@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title, "查看系统信息" %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @system.name %>
-</p>
+<h1 class="text-myBlue">
+  查看系统信息
+  <div class="pull-right">
+    <a href="<%= edit_system_path(@system) %>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> 修改</a>
+    <a href="<%= systems_path %>" class="btn btn-sm btn-link"><i class="fa fa-arrow-circle-o-left"></i> 返回</a>
+  </div>
+</h1>
 
-<p>
-  <strong>Link:</strong>
-  <%= @system.link %>
-</p>
+<div class="detail">
 
-<p>
-  <strong>Username:</strong>
-  <%= @system.username %>
-</p>
+  <div class="row">
+    <label class="col-sm-2">软件名称：</label><p class="col-sm-10"><%= @system.name %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">软件类型：</label><p class="col-sm-10"><%= @system.link %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">账户名：</label><p class="col-sm-10"><%= @system.username %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">密码：</label><p class="col-sm-10"><%= @system.password %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">创建者：</label><p class="col-sm-10"><%= @system.user.name %></p>
+  </div>
 
-<p>
-  <strong>Password:</strong>
-  <%= @system.password %>
-</p>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @system.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_system_path(@system) %> |
-<%= link_to 'Back', systems_path %>

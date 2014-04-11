@@ -1,4 +1,6 @@
 class SystemsController < ApplicationController
+  layout 'main', only: :index
+  
   before_action :set_system, only: [:show, :edit, :update, :destroy]
 
   # GET /systems

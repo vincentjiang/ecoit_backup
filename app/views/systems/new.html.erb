@@ -1,5 +1,40 @@
-<h1>New system</h1>
+<% content_for :title, "新建系统信息" %>
 
-<%= render 'form' %>
+<h1 class="text-myBlue">新建系统信息</h1>
 
-<%= link_to 'Back', systems_path %>
+<%= form_for(@system, html: { class: "form-horizontal" }) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name, "系统名称：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :link, "系统链接：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :link, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :username, "账户名：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :username, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, "密码：", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :password, class: "form-control" %>
+    </div>
+  </div>
+
+  <%= f.hidden_field :user_id, class: "form-control", value: "#{current_user.id}" %>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+      <%= f.submit "提交", :disable_with => '正在提交...', class: "btn btn-primary" %><%= link_to 'Back', systems_path, class: "btn btn-link" %>
+    </div>
+  </div>
+
+<% end %>

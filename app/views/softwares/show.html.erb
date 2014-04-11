@@ -1,39 +1,40 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title, "查看软件信息" %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @software.name %>
-</p>
+<h1 class="text-myBlue">
+  查看软件信息
+  <div class="pull-right">
+    <a href="<%= edit_software_path(@software) %>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> 修改</a>
+    <a href="<%= softwares_path %>" class="btn btn-sm btn-link"><i class="fa fa-arrow-circle-o-left"></i> 返回</a>
+  </div>
+</h1>
 
-<p>
-  <strong>Kind:</strong>
-  <%= @software.kind %>
-</p>
+<div class="detail">
 
-<p>
-  <strong>Sn:</strong>
-  <%= @software.sn %>
-</p>
+  <div class="row">
+    <label class="col-sm-2">软件名称：</label><p class="col-sm-10"><%= @software.name %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">软件类型：</label><p class="col-sm-10"><%= @software.kind %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">SN号：</label><p class="col-sm-10"><%= @software.sn %></p>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">服务到期日期：</label><p class="col-sm-10"><%= @software.service_expired_day %></p>
+  </div>
+  <% if @software.function.present? %>
+    <div class="row">
+      <label class="col-sm-2">软件用途：</label><p class="col-sm-10"><%= @software.function %></p>
+    </div>
+  <% end %>
+  <% if @software.remark.present? %>
+    <div class="row">
+      <label class="col-sm-2">备注：</label><p class="col-sm-10"><%= @software.remark %></p>
+    </div>
+  <% end %>
+  <div class="row">
+    <label class="col-sm-2">创建者：</label><p class="col-sm-10"><%= @software.user.name %></p>
+  </div>
 
-<p>
-  <strong>Service expired day:</strong>
-  <%= @software.service_expired_day %>
-</p>
+</div>
 
-<p>
-  <strong>Function:</strong>
-  <%= @software.function %>
-</p>
-
-<p>
-  <strong>Remark:</strong>
-  <%= @software.remark %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @software.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_software_path(@software) %> |
-<%= link_to 'Back', softwares_path %>

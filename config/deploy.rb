@@ -12,7 +12,7 @@ require 'mina/git'
 
 set :domain, '10.148.7.25'
 set :deploy_to, '/var/www/ecoit.com'
-set :repository, 'git@github.com:ecoit.git'
+set :repository, 'https://github.com/vincentjiang/ecoit'
 set :branch, 'master'
 
 

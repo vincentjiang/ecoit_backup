@@ -4,15 +4,10 @@ ruby '2.1.1'
 
 gem 'rails', '4.1.0'
 
+gem 'mysql2'
 
 group :development do
-	gem 'sqlite3'
   gem 'rails_layout'
-end
-
-group :production do
-	gem 'pg'
-	gem 'rails_12factor'
 end
 
 gem 'sass-rails', '~> 4.0.0'
@@ -33,3 +28,7 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   gem 'sdoc', require: false
 end
+
+gem 'spring',        group: :development
+
+gem 'mina'

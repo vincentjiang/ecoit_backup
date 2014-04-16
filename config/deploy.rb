@@ -10,11 +10,10 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain, '192.168.1.6'
+set :domain, 'localhost'
 set :deploy_to, '/var/www/ecoit.com'
 set :repository, 'https://github.com/vincentjiang/ecoit'
 set :branch, 'master'
-
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
@@ -22,8 +21,7 @@ set :shared_paths, ['config/database.yml', 'log']
 
 # Optional settings:
   set :user, 'vincent'    # Username in the server to SSH to.
-  # set :port, '30000'     # SSH port number.
-  set :term_mode, :nil 
+#   set :port, '30000'     # SSH port number.
 
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.

@@ -10,10 +10,12 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain, 'localhost'
+set :domain, '10.148.7.35'
 set :deploy_to, '/var/www/ecoit.com'
 set :repository, 'https://github.com/vincentjiang/ecoit'
 set :branch, 'master'
+set :term_mode, nil
+set :rvm_path, '/usr/local/rvm/bin/rvm'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
@@ -31,7 +33,7 @@ task :environment do
   # invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
-  invoke :'rvm:use[ruby 2.1.1@default]'
+  invoke :'rvm:use[ruby-2.1.1@default]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.

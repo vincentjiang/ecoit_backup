@@ -5,6 +5,7 @@ ruby '2.1.1'
 gem 'rails', '4.1.0'
 
 gem 'mysql2'
+gem 'puma'
 
 group :development do
   gem 'rails_layout'
@@ -30,5 +31,3 @@ group :doc do
 end
 
 gem 'spring',        group: :development
-
-gem 'mina'

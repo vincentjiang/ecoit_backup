@@ -4,10 +4,15 @@ ruby '2.1.1'
 
 gem 'rails', '4.1.0'
 
+# Simple Rails app configuration
+gem 'figaro'
+
+# rails server
 gem 'puma'
 
 gem 'sass-rails', '~> 4.0.0'
 
+#bootstrap
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 
